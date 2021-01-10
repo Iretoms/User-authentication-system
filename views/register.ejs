@@ -1,0 +1,66 @@
+<h1>Register</h1>
+<%- include ('./partials/messages')
+%>
+<form action="/users/register" method="post">
+  <div>
+    <label for="name">Username</label>
+    <input
+     type="name"
+     name="name"
+     placeholder="Enter your name"
+     value="<%= typeof name !='undefined' ? name : '' %>"
+     />
+  </div>
+</br>
+
+  <div>
+    <label for="email">Email</label>
+    <input
+     type="email"
+     name="email"
+     placeholder="Enter your email"
+     value="<%= typeof email !='undefined' ? email : '' %>"
+     />
+  </div>
+</br>
+
+  <div>
+    <label for="password">Password</label>
+    <input
+     type="password"
+     name="password"
+     id="password"
+     onkeyup="click()"
+     value="<%= typeof password !='undefined' ? password : '' %>"
+     />
+  </div>
+</br>
+
+  <div>
+    <label for="password2">Confirm Password</label>
+    <input
+     type="password"
+     name="password2"
+     id="password2"
+     onkeyup="check()"
+     value="<%= typeof password !='undefined' ? password2 : '' %>"
+     />
+     <span id='message'></span>
+  </div>
+  <br/>
+
+  <button type="submit" class="">
+    Register
+  </button>
+</form>
+<p> Have an account here? <a href="/users/login">Login</a></p>
+
+<script>
+let check = ()=>{
+  if (document.getElementById('password').value === document.getElementById('password2').value) {
+    document.getElementById('message').innerHTML= 'matching'
+  } else {
+    document.getElementById('message').innerHTML= 'not matching'
+  }
+}
+</script>
